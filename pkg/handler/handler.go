@@ -351,6 +351,8 @@ func (m *Modifier) Handle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	admissionReview := v1beta1.AdmissionReview{}
+	admissionReview.APIVersion = "admission.k8s.io/v1beta1"
+	admissionReview.Kind = "AdmissionReview"
 	if admissionResponse != nil {
 		admissionReview.Response = admissionResponse
 		if ar.Request != nil {
